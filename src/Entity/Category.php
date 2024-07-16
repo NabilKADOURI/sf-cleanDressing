@@ -32,6 +32,9 @@ class Category
     #[ORM\ManyToMany(targetEntity: Service::class, mappedBy: 'categories')]
     private Collection $services;
 
+    #[ORM\Column(length: 255)]
+    private ?string $picture = null;
+
     public function __construct()
     {
         $this->product = new ArrayCollection();
@@ -108,6 +111,18 @@ class Category
         if ($this->services->removeElement($service)) {
             $service->removeCategory($this);
         }
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): static
+    {
+        $this->picture = $picture;
 
         return $this;
     }
