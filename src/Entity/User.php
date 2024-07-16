@@ -42,7 +42,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $email = null;
 
     #[ORM\Column]
-    private ?float $phone = null;
+    private ?string $phone = null;
 
     #[ORM\Column(length: 255)]
     private ?string $adress = null;
@@ -148,12 +148,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPhone(): ?float
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(float $phone): static
+    public function setPhone(string $phone): static
     {
         $this->phone = $phone;
 

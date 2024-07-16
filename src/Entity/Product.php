@@ -34,7 +34,7 @@ class Product
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?matter $matter = null;
+    private ?Matter $matter = null;
 
     public function getId(): ?int
     {
@@ -101,12 +101,12 @@ class Product
         return $this;
     }
 
-    public function getMatter(): ?matter
+    public function getMatter(): ?Matter
     {
         return $this->matter;
     }
 
-    public function setMatter(?matter $matter): static
+    public function setMatter(?Matter $matter): static
     {
         $this->matter = $matter;
 

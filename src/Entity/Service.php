@@ -31,9 +31,9 @@ class Service
     private ?string $picture = null;
 
     /**
-     * @var Collection<int, category>
+     * @var Collection<int, Category>
      */
-    #[ORM\ManyToMany(targetEntity: category::class, inversedBy: 'services')]
+    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'services')]
     private Collection $categories;
 
     public function __construct()
@@ -95,14 +95,14 @@ class Service
     }
 
     /**
-     * @return Collection<int, category>
+     * @return Collection<int, Category>
      */
     public function getCategories(): Collection
     {
         return $this->categories;
     }
 
-    public function addCategory(category $category): static
+    public function addCategory(Category $category): static
     {
         if (!$this->categories->contains($category)) {
             $this->categories->add($category);
@@ -111,7 +111,7 @@ class Service
         return $this;
     }
 
-    public function removeCategory(category $category): static
+    public function removeCategory(Category $category): static
     {
         $this->categories->removeElement($category);
 

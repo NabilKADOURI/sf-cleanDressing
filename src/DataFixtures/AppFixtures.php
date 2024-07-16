@@ -61,10 +61,11 @@ class AppFixtures extends Fixture
             $category->setName($categoryArray['name'])
                      ->setPicture($categoryArray['picture']);
 
-            $manager->persist($category);
             $categoryEntities[$categoryArray['name']] = $category;
+            $manager->persist($category);
         }
 
+      
         foreach (self::MATTERS as $matterArray) {
             $matters = new Matter();
             $matters->setName($matterArray['name'])
@@ -73,7 +74,6 @@ class AppFixtures extends Fixture
             $manager->persist($matters);
             
         }
-
        
         foreach (self::PRODUCTS as $productArray) {
             if (!isset($categoryEntities[$productArray['category']])) {
@@ -89,6 +89,7 @@ class AppFixtures extends Fixture
                     
             $manager->persist($product);
         }
+
 
         
       
