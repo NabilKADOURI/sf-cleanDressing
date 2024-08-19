@@ -29,9 +29,16 @@ class Matter
     #[ORM\OneToMany(targetEntity: Product::class, mappedBy: 'matter')]
     private Collection $products;
 
+    /**
+     * @var Collection<int, Item>
+     */
+    #[ORM\OneToMany(targetEntity: Item::class, mappedBy: 'matterItem', orphanRemoval: true)]
+    private Collection $items;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
+        $this->items = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -87,6 +94,36 @@ class Matter
             // set the owning side to null (unless already changed)
             if ($product->getMatter() === $this) {
                 $product->setMatter(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Item>
+     */
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function addItem(Item $item): static
+    {
+        if (!$this->items->contains($item)) {
+            $this->items->add($item);
+            $item->setMatterItem($this);
+        }
+
+        return $this;
+    }
+
+    public function removeItem(Item $item): static
+    {
+        if ($this->items->removeElement($item)) {
+            // set the owning side to null (unless already changed)
+            if ($item->getMatterItem() === $this) {
+                $item->setMatterItem(null);
             }
         }
 

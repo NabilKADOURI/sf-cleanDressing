@@ -36,9 +36,16 @@ class Service
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'services')]
     private Collection $categories;
 
+    /**
+     * @var Collection<int, Item>
+     */
+    #[ORM\OneToMany(targetEntity: Item::class, mappedBy: 'serviceItem', orphanRemoval: true)]
+    private Collection $items;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->items = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -114,6 +121,36 @@ class Service
     public function removeCategory(Category $category): static
     {
         $this->categories->removeElement($category);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Item>
+     */
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function addItem(Item $item): static
+    {
+        if (!$this->items->contains($item)) {
+            $this->items->add($item);
+            $item->setServiceItem($this);
+        }
+
+        return $this;
+    }
+
+    public function removeItem(Item $item): static
+    {
+        if ($this->items->removeElement($item)) {
+            // set the owning side to null (unless already changed)
+            if ($item->getServiceItem() === $this) {
+                $item->setServiceItem(null);
+            }
+        }
 
         return $this;
     }
