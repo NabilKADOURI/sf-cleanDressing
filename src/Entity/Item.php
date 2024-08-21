@@ -6,8 +6,9 @@ use ApiPlatform\Metadata\ApiResource;
 use App\Repository\ItemRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: ItemRepository::class)]
-#[ApiResource]
+#[ApiResource ]
 class Item
 {
     #[ORM\Id]
@@ -16,21 +17,26 @@ class Item
     private ?int $id = null;
 
     #[ORM\Column(nullable: true)]
+
     private ?\DateTimeImmutable $createAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'items')]
+
     private ?Order $orders = null;
 
     #[ORM\ManyToOne(inversedBy: 'items')]
     #[ORM\JoinColumn(nullable: false)]
+
     private ?Product $productItem = null;
 
     #[ORM\ManyToOne(inversedBy: 'items')]
     #[ORM\JoinColumn(nullable: false)]
+
     private ?Service $serviceItem = null;
 
     #[ORM\ManyToOne(inversedBy: 'items')]
     #[ORM\JoinColumn(nullable: false)]
+
     private ?Matter $matterItem = null;
 
     public function getId(): ?int
