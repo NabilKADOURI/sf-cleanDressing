@@ -34,6 +34,11 @@ class Contact
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
+    public function __construct()
+    {
+        // Initialisation de la date avec la date et l'heure actuelles
+        $this->date = new \DateTime();
+    }
     public function getId(): ?int
     {
         return $this->id;
