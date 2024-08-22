@@ -38,9 +38,9 @@ class UserFixture extends Fixture
         $superAdmin->setName('Dupuis')
             ->setFirstName('Pierre')
             ->setPhone('0706050403')
-            ->setEmail('superadmin@cleandressing.com')
-            ->setRoles(['ROLE_SUPER_ADMIN'])
-            ->setPassword('superAdmin')
+            ->setEmail('employee@cleandressing.com')
+            ->setRoles(['ROLE_EMPLOYEE'])
+            ->setPassword('employee')
             ->setAdress('89 Rue du Puits Vieux');
         $manager->persist($superAdmin);
 
