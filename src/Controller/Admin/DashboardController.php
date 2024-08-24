@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Contact;
 use App\Entity\Item;
@@ -29,7 +30,7 @@ class DashboardController extends AbstractDashboardController
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        return $this->redirect($adminUrlGenerator->setController(ItemCrudController::class)->generateUrl());
+        return $this->redirect($adminUrlGenerator->setController(OrderCrudController::class)->generateUrl());
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
         //
@@ -52,8 +53,8 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::section('Orders');
-        yield MenuItem::linkToCrud('Orders','fa-brands fa-dropbox', Order::class)->setPermission('ROLE_ADMIN');
-        yield MenuItem::linkToCrud('Items','fa-solid fa-cart-shopping', Item::class);
+        yield MenuItem::linkToCrud('Orders','fa-brands fa-dropbox', Order::class);
+        yield MenuItem::linkToCrud('Items','fa-solid fa-cart-shopping', Item::class)->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToCrud('Status','fa-solid fa-bars-progress', Status::class)->setPermission('ROLE_ADMIN');
 
         yield MenuItem::section('Account')->setPermission('ROLE_ADMIN');
@@ -66,7 +67,10 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Matters','fa-solid fa-recycle', Matter::class)->setPermission('ROLE_ADMIN');
 
         yield MenuItem::section('Messaging')->setPermission('ROLE_ADMIN');
-        yield MenuItem::linkToCrud('Contact','fa-regular fa-id-card', Contact::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Contacts','fa-regular fa-id-card', Contact::class)->setPermission('ROLE_ADMIN');
+
+        yield MenuItem::section('Blog')->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Articles','fa-regular fa-id-card', Article::class)->setPermission('ROLE_ADMIN');
 
         yield MenuItem::section('Exit');
         yield MenuItem::linkToLogout('Deconnexion','fa-solid fa-right-from-bracket');

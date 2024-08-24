@@ -13,7 +13,7 @@ class ArticleFixture extends Fixture
         [
             'title' => "Astuces repassage",
             'subtitle'=> "Conseils Pratiques pour un Repassage Parfait",
-            'picture' => "/Business-case-images/img-webp/astuce-repassage_resultat.webp",
+            'picture' => "/uploads/images/astuce-repassage_resultat.webp",
             'description' => "1 - Repasser avec un fer à bonne température. "
                 . "Commencer par trier le linge selon la température de repassage requise. "
                 . "Débuter par ceux qui nécessitent la température la plus basse en allant vers ceux qui nécessitent la température la plus haute : "
@@ -51,7 +51,7 @@ class ArticleFixture extends Fixture
         [
             'title' => "Le blanc",
             'subtitle' => "Le Blanc Parfait : Trucs et Astuces Incontournables",
-            'picture' => "/Business-case-images/img-webp/astuce-blanc_resultat.webp",
+            'picture' => "/uploads/images/astuce-blanc_resultat.webp",
             'description' => "1. Ne mélangez pas vos blancs avec d’autres couleurs, aussi pâles soient-elles. Évitez également de mettre une trop grande quantité de vêtements dans la machine. Ils doivent pouvoir circuler librement dans l’eau afin d'être bien nettoyés.\n\n"
                             . "2. Avant de nettoyer, soyez certain de prétraiter les taches avec un produit approprié.\n\n"
                             . "3. Oubliez l’eau de javel et optez plutôt pour un mélange de 1/4 de tasse de jus de citron ajouté à votre lessive. À défaut du jus de citron, le bicarbonate de soude et le vinaigre sont d’excellents blanchissants. "
@@ -68,7 +68,7 @@ class ArticleFixture extends Fixture
         [
             'title' => "Fibres naturelles",
             'subtitle' => "Entretien et soin des fibres naturelles",
-            'picture' => "/Business-case-images/img-webp/astuce-fibre_resultat.webp",
+            'picture' => "/uploads/images/astuce-fibre_resultat.webp",
             'description' => "<b>1. Lire les étiquettes de soin :</b>\n"
                             . "- Vérifiez toujours l'étiquette d'entretien pour des instructions spécifiques concernant le lavage, le séchage et le repassage.\n\n"
                             . "<b>2. Tri du linge :</b>\n"

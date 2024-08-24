@@ -12,12 +12,12 @@ use Doctrine\Persistence\ObjectManager;
 class AppFixtures extends Fixture
 {
     public const CATEGORIES = [
-        ['name' => 'LES HAUTS', 'picture' => 'https://images.unsplash.com/photo-1523199455310-87b16c0eed11?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fENoZW1pc2VzfGVufDB8MHwwfHx8MA%3D%3D'],
-        ['name' => 'LES BAS', 'picture' => '/Business-case-images/img-webp/les-bas_resultat_resultat.webp'],
-        ['name' => "VETEMENTS D'HIVER", 'picture' => 'https://img.freepik.com/photos-gratuite/branche-arbre-automne-vibrante-gros-plan-ia-generative-beaute_188544-12654.jpg?ga=GA1.1.256245582.1721312353&semt=ais_user'],
-        ['name' => 'VETEMENTS DE CEREMONIE', 'picture' => '/Business-case-images/img-webp/cérémonie_resultat.webp'],
-        ['name' => 'VETEMENTS DE SPORT', 'picture' => '/Business-case-images/img-webp/sport.webp'],
-        ['name' => 'LES LINGES DE LIT', 'picture' => '/Business-case-images/img-webp/linge-de-lit_resultat.webp'],
+        ['name' => 'LES HAUTS', 'picture' => '/uploads/images/categorie_les_hauts.png'],
+        ['name' => 'LES BAS', 'picture' => '/uploads/images/categorie_les_bas.png'],
+        ['name' => "VETEMENTS D'HIVER", 'picture' => '/uploads/images/categorie_hivers.png'],
+        ['name' => 'VETEMENTS DE CEREMONIE', 'picture' => '/uploads/images/categorie_ceremonie.png'],
+        ['name' => 'VETEMENTS DE SPORT', 'picture' => '/uploads/images/categorie_sports.jpg'],
+        ['name' => 'LES LINGES DE LIT', 'picture' => '/uploads/images/categorie_linges_de_lit.png'],
     ];
 
     public const PRODUCTS = [
