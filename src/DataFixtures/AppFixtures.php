@@ -12,12 +12,12 @@ use Doctrine\Persistence\ObjectManager;
 class AppFixtures extends Fixture
 {
     public const CATEGORIES = [
-        ['name' => 'LES HAUTS', 'picture' => '/uploads/images/categorie_les_hauts.png'],
-        ['name' => 'LES BAS', 'picture' => '/uploads/images/categorie_les_bas.png'],
-        ['name' => "VETEMENTS D'HIVER", 'picture' => '/uploads/images/categorie_hivers.png'],
-        ['name' => 'VETEMENTS DE CEREMONIE', 'picture' => '/uploads/images/categorie_ceremonie.png'],
-        ['name' => 'VETEMENTS DE SPORT', 'picture' => '/uploads/images/categorie_sports.jpg'],
-        ['name' => 'LES LINGES DE LIT', 'picture' => '/uploads/images/categorie_linges_de_lit.png'],
+        ['name' => 'LES HAUTS', 'picture' => 'categorie_les_hauts.png'],
+        ['name' => 'LES BAS', 'picture' => 'categorie_les_bas.png'],
+        ['name' => "VETEMENTS D'HIVER", 'picture' => 'categorie_hivers.png'],
+        ['name' => 'VETEMENTS DE CEREMONIE', 'picture' => 'categorie_ceremonie.png'],
+        ['name' => 'VETEMENTS DE SPORT', 'picture' => 'categorie_sports.jpg'],
+        ['name' => 'LES LINGES DE LIT', 'picture' => 'categorie_linges_de_lit.png'],
     ];
 
     public const PRODUCTS = [

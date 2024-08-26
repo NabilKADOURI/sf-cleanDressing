@@ -38,11 +38,11 @@ class ServiceCrudController extends AbstractCrudController
         return $actions
             ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $action) {
                 return $action->setLabel('Add New Service')
-                              ->setCssClass('btn btn-success');
+                    ->setCssClass('btn btn-success');
             })
             ->update(Crud::PAGE_DETAIL, Action::EDIT, function (Action $action) {
                 return $action->setLabel('Edit Service')
-                              ->setCssClass('btn btn-primary');
+                    ->setCssClass('btn btn-primary');
             })
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->setPermission(Action::DELETE, 'ROLE_ADMIN');
@@ -55,11 +55,11 @@ class ServiceCrudController extends AbstractCrudController
             TextEditorField::new('description', 'Description'),
             NumberField::new('price', 'Prix'),
             ImageField::new('picture', 'Image')
-                ->setBasePath('')
-                ->setUploadDir('public/Business-case-images/images/')
+                ->setBasePath('uploads/')
+                ->setUploadDir('public/uploads/')
                 ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')
                 ->setRequired(false),
-            
+
         ];
     }
 

@@ -41,13 +41,13 @@ class ProductCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            
+
             TextField::new('name', 'Nom'),
             TextEditorField::new('description', 'Description'),
             NumberField::new('price', 'Prix'),
             ImageField::new('picture', 'Image')
-                ->setBasePath('Business-case-images/images')
-                ->setUploadDir('public//Business-case-images/images/')
+                ->setBasePath('uploads/')
+                ->setUploadDir('public/uploads/')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
             // Afficher le nom des catégories

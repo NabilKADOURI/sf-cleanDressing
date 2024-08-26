@@ -2,7 +2,8 @@
 
 namespace App\EventSubscriber;
 
-use App\Entity\Project;
+use App\Entity\Article;
+use App\Entity\Product;
 use App\Entity\Service;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityDeletedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -25,10 +26,10 @@ class DeletePictureSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getEntityInstance();
 
-        if (!($entity instanceof Service)) {
+        if (!$entity instanceof Service && !$entity instanceof Product && !$entity instanceof Article) {
             return;
         }
 
-        $this->filesystem->remove('Business-case-images/images' . $entity->getPicture());
+        $this->filesystem->remove('uploads/' . $entity->getPicture());
     }
 }

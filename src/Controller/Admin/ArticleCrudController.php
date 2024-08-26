@@ -24,9 +24,7 @@ class ArticleCrudController extends AbstractCrudController
     {
         return $actions
             ->add(Crud::PAGE_INDEX, Action::DETAIL);  // Ajoute l'action show sur la page index
-           
-           
-         
+
     }
 
     public function configureFields(string $pageName): iterable
@@ -36,8 +34,8 @@ class ArticleCrudController extends AbstractCrudController
             TextField::new('title', 'Titre'),
             DateField::new('dateCreate', 'Date de création'),
             ImageField::new('picture', 'Image')
-                ->setUploadDir('')
-                ->setBasePath('')
+                ->setBasePath('uploads/')
+                ->setUploadDir('public/uploads/')
                 ->setRequired(false),
             TextField::new('subtitle', 'Sous-titre'),
             TextEditorField::new('description', 'Description'),

@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -23,7 +24,7 @@ class UserCrudController extends AbstractCrudController
             TextField::new('email'),
             TextField::new('phone'),
             TextField::new('adress'),
-            // Exclude password from being visible
+            ArrayField::new('roles'),
         ];
     }
 }

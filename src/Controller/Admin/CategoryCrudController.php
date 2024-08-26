@@ -8,11 +8,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
 
 class CategoryCrudController extends AbstractCrudController
@@ -40,18 +38,17 @@ class CategoryCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            
             TextField::new('name', 'Nom'),
             ImageField::new('picture', 'Image')
-                ->setBasePath('')
-                ->setUploadDir('public/Business-case-images/images/')
+                ->setBasePath('uploads/')
+                ->setUploadDir('public/uploads/')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
-                ArrayField::new('product')
+            AssociationField::new('product', 'Produits')
                 ->setFormTypeOptions([
                     'by_reference' => false,
-                ])
-                
-                ->setTextAlign('left'),
+                ]),
         ];
     }
 
