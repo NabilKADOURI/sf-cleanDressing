@@ -7,6 +7,7 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\This;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -55,9 +56,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Order::class, mappedBy: 'userOrder', orphanRemoval: true)]
     private Collection $orders;
 
+    /**
+     * @var Collection<int, Order>
+     */
+    #[ORM\OneToMany(targetEntity: Order::class, mappedBy: 'employee')]
+    private Collection $orders_employee;
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
+        $this->orders_employee = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -218,5 +226,34 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @return Collection<int, Order>
+     */
+    public function getOrdersEmployee(): Collection
+    {
+        return $this->orders_employee;
+    }
+
+    public function addOrdersEmployee(Order $ordersEmployee): static
+    {
+        if (!$this->orders_employee->contains($ordersEmployee)) {
+            $this->orders_employee->add($ordersEmployee);
+            $ordersEmployee->setEmployee($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrdersEmployee(Order $ordersEmployee): static
+    {
+        if ($this->orders_employee->removeElement($ordersEmployee)) {
+            if ($ordersEmployee->getEmployee() === $this) {
+                $ordersEmployee->setEmployee(null);
+            }
+        }
+
+        return $this;
     }
 }

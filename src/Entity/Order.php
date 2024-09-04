@@ -44,6 +44,9 @@ class Order
 
     private ?Status $status = null;
 
+    #[ORM\ManyToOne(inversedBy: 'orders_employee')]
+    private ?User $employee = null;
+
     public function __construct()
     {
         $this->items = new ArrayCollection();
@@ -135,6 +138,18 @@ class Order
     public function __toString(): string
     {
         return $this->id;
+    }
+
+    public function getEmployee(): ?User
+    {
+        return $this->employee;
+    }
+
+    public function setEmployee(?User $employee): static
+    {
+        $this->employee = $employee;
+
+        return $this;
     }
 
 }

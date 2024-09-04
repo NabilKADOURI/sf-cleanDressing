@@ -27,6 +27,7 @@ class OrderCrudController extends AbstractCrudController
             NumberField::new('totalPrice')->hideOnForm(),
             ArrayField::new('items')->hideOnForm(),
             AssociationField::new('userOrder')->hideOnForm(),
+            AssociationField::new('employee'),
             AssociationField::new('status'),
            
         ];
@@ -37,6 +38,7 @@ class OrderCrudController extends AbstractCrudController
         return $actions
           
             ->add(Crud::PAGE_INDEX, Action::DETAIL)  
-            ->setPermission(Action::DELETE, 'ROLE_ADMIN');  
+            ->setPermission(Action::DELETE, 'ROLE_ADMIN')
+            ->disable(Action::NEW);
     }
 }
