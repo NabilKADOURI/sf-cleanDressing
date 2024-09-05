@@ -2,10 +2,11 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Employee;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+
 
 class UserFixture extends Fixture
 {
@@ -34,7 +35,7 @@ class UserFixture extends Fixture
              
         $manager->persist($adminUser);
         
-        $superAdmin = new User();
+        $superAdmin = new Employee();
         $superAdmin->setName('Dupuis')
             ->setFirstName('Pierre')
             ->setPhone('0706050403')

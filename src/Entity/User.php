@@ -13,15 +13,19 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
+#[ORM\Table(name:'`user')]
+#[ORM\InheritanceType('JOINED')]
+#[ORM\DiscriminatorColumn(name: "dtype", type: "string")]
+#[ORM\DiscriminatorMap(["user" => User::class, "employee" => Employee::class])]
 #[ApiResource]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    
     private ?int $id = null;
 
-  
 
     /**
      * @var list<string> The user roles
@@ -228,32 +232,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->name;
     }
 
-    /**
-     * @return Collection<int, Order>
-     */
-    public function getOrdersEmployee(): Collection
-    {
-        return $this->orders_employee;
-    }
-
-    public function addOrdersEmployee(Order $ordersEmployee): static
-    {
-        if (!$this->orders_employee->contains($ordersEmployee)) {
-            $this->orders_employee->add($ordersEmployee);
-            $ordersEmployee->setEmployee($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOrdersEmployee(Order $ordersEmployee): static
-    {
-        if ($this->orders_employee->removeElement($ordersEmployee)) {
-            if ($ordersEmployee->getEmployee() === $this) {
-                $ordersEmployee->setEmployee(null);
-            }
-        }
-
-        return $this;
-    }
+    
 }

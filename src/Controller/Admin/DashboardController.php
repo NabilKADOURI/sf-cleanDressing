@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Contact;
+use App\Entity\Employee;
 use App\Entity\Item;
 use App\Entity\Matter;
 use App\Entity\Order;
@@ -50,6 +51,7 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('Account')->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToCrud('Users', 'fa-regular fa-user', User::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Employee', 'fa-regular fa-user', Employee::class)->setPermission('ROLE_ADMIN');
 
         yield MenuItem::section('Benefit')->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToCrud('Categories', 'fa-solid fa-list', Category::class)->setPermission('ROLE_ADMIN');

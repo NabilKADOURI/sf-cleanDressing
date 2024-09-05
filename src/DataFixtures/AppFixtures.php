@@ -76,7 +76,6 @@ class AppFixtures extends Fixture
             $categoryEntities[$categoryArray['name']] = $category;
             $manager->persist($category);
         }
-
       
         foreach (self::MATTERS as $matterArray) {
             $matters = new Matter();
@@ -108,11 +107,6 @@ class AppFixtures extends Fixture
 
             $manager->persist($status);
         } 
-
-
-
-        
-      
 
         $manager->flush();
     }

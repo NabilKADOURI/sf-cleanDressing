@@ -27,8 +27,8 @@ class OrderCrudController extends AbstractCrudController
             NumberField::new('totalPrice')->hideOnForm(),
             ArrayField::new('items')->hideOnForm(),
             AssociationField::new('userOrder')->hideOnForm(),
-            AssociationField::new('employee'),
             AssociationField::new('status'),
+            AssociationField::new('employee'),
            
         ];
     }
