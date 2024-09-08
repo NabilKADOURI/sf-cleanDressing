@@ -35,15 +35,15 @@ class UserFixture extends Fixture
              
         $manager->persist($adminUser);
         
-        $superAdmin = new Employee();
-        $superAdmin->setName('Dupuis')
+        $employee = new Employee();
+        $employee->setName('Dupuis')
             ->setFirstName('Pierre')
             ->setPhone('0706050403')
             ->setEmail('employee@cleandressing.com')
             ->setRoles(['ROLE_EMPLOYEE'])
             ->setPassword('employee')
             ->setAdress('89 Rue du Puits Vieux');
-        $manager->persist($superAdmin);
+        $manager->persist($employee);
 
         $manager->flush();
     }

@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Controller\Admin\Traits\ReadOnlyTrait;
+use App\Controller\Admin\Traits\ViewAndDeleteTrait;
 use App\Entity\Contact;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -15,7 +16,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 class ContactCrudController extends AbstractCrudController
 {
-    use ReadOnlyTrait;
+    use ViewAndDeleteTrait;
 
     public static function getEntityFqcn(): string
     {

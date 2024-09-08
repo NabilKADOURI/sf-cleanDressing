@@ -2,6 +2,8 @@
 
 namespace App\Controller\Admin;
 
+use App\Controller\Admin\Traits\FullCrudTrait;
+use App\Controller\Admin\Traits\ViewTrait;
 use App\Entity\Matter;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -16,6 +18,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
 
 class MatterCrudController extends AbstractCrudController
 {
+    use ViewTrait;
     public static function getEntityFqcn(): string
     {
         return Matter::class;
@@ -29,12 +32,7 @@ class MatterCrudController extends AbstractCrudController
             ->setDefaultSort(['name' => 'ASC']);
     }
 
-    public function configureActions(Actions $actions): Actions
-    {
-        return $actions
-            ->add(Crud::PAGE_INDEX, Action::DETAIL)
-            ->setPermission(Action::DELETE, 'ROLE_ADMIN');
-    }
+
 
     public function configureFields(string $pageName): iterable
     {

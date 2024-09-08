@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Controller\Admin\Traits\OrderManagementTrait;
 use App\Entity\Order;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -15,6 +16,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 
 class OrderCrudController extends AbstractCrudController
 {
+    use OrderManagementTrait;
     public static function getEntityFqcn(): string
     {
         return Order::class;
