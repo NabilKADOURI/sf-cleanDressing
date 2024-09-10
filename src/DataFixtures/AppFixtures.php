@@ -104,7 +104,7 @@ class AppFixtures extends Fixture
         foreach (self::STATUS as $statusArray) {
             $status = new Status();
             $status->setName($statusArray);
-
+            
             $manager->persist($status);
         } 
 

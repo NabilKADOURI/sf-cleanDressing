@@ -40,6 +40,14 @@ class Item
    #[Groups(['order:read', 'user:read'])]
     private ?Matter $matterItem = null;
 
+    #[ORM\Column(nullable: true)]
+    #[Groups(['order:read', 'user:read'])]
+    private ?float $price = null;
+
+    #[ORM\Column(nullable: true)]
+    #[Groups(['order:read', 'user:read'])]
+    private ?int $quantity = null;
+
     public function __construct()
     {
         $this->createAt = new \DateTimeImmutable();
@@ -114,6 +122,30 @@ class Item
     {
         return $this->productItem ->getName() . ' ' . $this->serviceItem->getName() . '' 
         ; 
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?float $price): static
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(?int $quantity): static
+    {
+        $this->quantity = $quantity;
+
+        return $this;
     }
 
   
