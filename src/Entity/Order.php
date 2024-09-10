@@ -12,31 +12,42 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
 #[ORM\Table(name: '`order`')]
-#[ApiResource ]
+#[ApiResource (
+    normalizationContext: ['groups' => ['order:read']],
+)]
 class Order
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['order:read', 'user:read'])]
+  
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['order:read', 'user:read'])]
+   
     private ?\DateTimeInterface $date = null;
 
    
 
     #[ORM\Column]
+    #[Groups(['order:read', 'user:read'])]
+   
     private ?float $totalPrice = null;
 
     /**
      * @var Collection<int, Item>
      */
     #[ORM\OneToMany(targetEntity: Item::class, mappedBy: 'orders')]
+    #[Groups(['order:read', 'user:read'])]
+    
     private Collection $items;
 
     #[ORM\ManyToOne(inversedBy: 'orders')]
     #[ORM\JoinColumn(nullable: false)]
-
+    
+    
     private ?User $userOrder = null;
 
     #[ORM\ManyToOne(inversedBy: 'orderStatus')]

@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\This;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
@@ -17,13 +18,14 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\InheritanceType('JOINED')]
 #[ORM\DiscriminatorColumn(name: "dtype", type: "string")]
 #[ORM\DiscriminatorMap(["user" => User::class, "employee" => Employee::class])]
-#[ApiResource]
+#[ApiResource (normalizationContext: ['groups' => ['user:read']],
+)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    
+    #[Groups('user:read')]
     private ?int $id = null;
 
 
@@ -40,36 +42,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups('user:read')]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups('user:read')]
     private ?string $firstName = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups('user:read')]
     private ?string $email = null;
 
     #[ORM\Column]
+    #[Groups('user:read')]
     private ?string $phone = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups('user:read')]
     private ?string $adress = null;
 
     /**
      * @var Collection<int, Order>
      */
     #[ORM\OneToMany(targetEntity: Order::class, mappedBy: 'userOrder', orphanRemoval: true)]
+    #[Groups('user:read')]
     private Collection $orders;
 
-    /**
-     * @var Collection<int, Order>
-     */
-    #[ORM\OneToMany(targetEntity: Order::class, mappedBy: 'employee')]
-    private Collection $orders_employee;
 
     public function __construct()
     {
         $this->orders = new ArrayCollection();
-        $this->orders_employee = new ArrayCollection();
     }
 
     public function getId(): ?int

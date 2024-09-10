@@ -5,19 +5,20 @@ namespace App\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\ItemRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ItemRepository::class)]
-#[ApiResource ]
+#[ApiResource]
 class Item
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+   #[Groups(['order:read', 'user:read'])]
     private ?int $id = null;
 
     #[ORM\Column(nullable: true)]
-
+   #[Groups(['order:read', 'user:read'])]
     private ?\DateTimeImmutable $createAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'items')]
@@ -26,17 +27,17 @@ class Item
 
     #[ORM\ManyToOne(inversedBy: 'items')]
     #[ORM\JoinColumn(nullable: false)]
-
+   #[Groups(['order:read', 'user:read'])]
     private ?Product $productItem = null;
 
     #[ORM\ManyToOne(inversedBy: 'items')]
     #[ORM\JoinColumn(nullable: false)]
-
+   #[Groups(['order:read', 'user:read'])]
     private ?Service $serviceItem = null;
 
     #[ORM\ManyToOne(inversedBy: 'items')]
     #[ORM\JoinColumn(nullable: false)]
-
+   #[Groups(['order:read', 'user:read'])]
     private ?Matter $matterItem = null;
 
     public function __construct()
