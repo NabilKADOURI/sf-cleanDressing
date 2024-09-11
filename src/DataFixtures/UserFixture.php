@@ -16,6 +16,7 @@ class UserFixture extends Fixture
         $user
             ->setName('Kadouri')
             ->setFirstName('Nabil')
+            ->setPicture('photo-profile.jpg')
             ->setPhone('0785662233')
             ->setEmail('user@cleandressing.com')
             ->setPassword('test')
