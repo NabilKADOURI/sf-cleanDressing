@@ -17,17 +17,18 @@ class Product
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-   #[Groups(['order:read', 'user:read'])]
+   #[Groups(['order:read', 'user:read', 'categories:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-   #[Groups(['order:read', 'user:read'])]
+   #[Groups(['order:read', 'user:read', 'categories:read'])]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
     #[ORM\Column]
+    #[Groups(['order:read', 'user:read', 'categories:read'])]
     private ?float $price = null;
 
     #[ORM\ManyToOne(inversedBy: 'product')]
