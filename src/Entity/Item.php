@@ -14,11 +14,11 @@ class Item
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-   #[Groups(['order:read', 'user:read'])]
+   #[Groups(['user:read'])]
     private ?int $id = null;
 
     #[ORM\Column(nullable: true)]
-   #[Groups(['order:read', 'user:read'])]
+   #[Groups([ 'user:read'])]
     private ?\DateTimeImmutable $createAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'items')]
@@ -27,25 +27,25 @@ class Item
 
     #[ORM\ManyToOne(inversedBy: 'items')]
     #[ORM\JoinColumn(nullable: false)]
-   #[Groups(['order:read', 'user:read'])]
+   #[Groups(['user:read'])]
     private ?Product $productItem = null;
 
     #[ORM\ManyToOne(inversedBy: 'items')]
     #[ORM\JoinColumn(nullable: false)]
-   #[Groups(['order:read', 'user:read'])]
+   #[Groups(['user:read'])]
     private ?Service $serviceItem = null;
 
     #[ORM\ManyToOne(inversedBy: 'items')]
     #[ORM\JoinColumn(nullable: false)]
-   #[Groups(['order:read', 'user:read'])]
+   #[Groups(['user:read'])]
     private ?Matter $matterItem = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(['order:read', 'user:read'])]
+    #[Groups(['user:read'])]
     private ?float $price = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(['order:read', 'user:read'])]
+    #[Groups(['user:read'])]
     private ?int $quantity = null;
 
     public function __construct()

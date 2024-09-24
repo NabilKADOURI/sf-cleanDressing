@@ -12,27 +12,25 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
 #[ORM\Table(name: '`order`')]
-#[ApiResource (
-    normalizationContext: ['groups' => ['order:read']],
-)]
+#[ApiResource]
 class Order
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['order:read', 'user:read'])]
+    #[Groups([ 'user:read'])]
   
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Groups(['order:read', 'user:read'])]
+    #[Groups([ 'user:read'])]
    
     private ?\DateTimeInterface $date = null;
 
    
 
     #[ORM\Column]
-    #[Groups(['order:read', 'user:read'])]
+    #[Groups([ 'user:read'])]
    
     private ?float $totalPrice = null;
 
@@ -40,7 +38,7 @@ class Order
      * @var Collection<int, Item>
      */
     #[ORM\OneToMany(targetEntity: Item::class, mappedBy: 'orders')]
-    #[Groups(['order:read', 'user:read'])]
+    #[Groups([ 'user:read'])]
     
     private Collection $items;
 
@@ -52,7 +50,7 @@ class Order
 
     #[ORM\ManyToOne(inversedBy: 'orderStatus')]
     #[ORM\JoinColumn(nullable: false)]
-
+    #[Groups([ 'user:read'])]
     private ?Status $status = null;
 
     #[ORM\ManyToOne(inversedBy: 'orders')]

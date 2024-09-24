@@ -25,18 +25,9 @@ class Category
     #[Groups(['categories:read'])]
     private ?string $name = null;
 
-    /**
-     * @var Collection<int, Product>
-     */
-   
-
     #[ORM\OneToMany(targetEntity: Product::class, mappedBy: 'category', cascade: ['remove'], orphanRemoval: true)]
     private Collection $product;
 
-
-    /**
-     * @var Collection<int, Service>
-     */
     #[ORM\ManyToMany(targetEntity: Service::class, mappedBy: 'categories')]
     private Collection $services;
 
