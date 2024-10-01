@@ -37,13 +37,5 @@ class SecurityController extends AbstractController
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 
-    public function getUserProfile(Security $security)
-    {
-        $user = $security->getUser(); // Récupère l'utilisateur connecté
-        if ($user) {
-            return $this->json($user, 200, [], ['groups' => 'user:read']);
-        }
-
-        return $this->json(['message' => 'User not found'], 404);
-    }
+   
 }

@@ -21,13 +21,6 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\DiscriminatorMap(["user" => User::class, "employee" => Employee::class])]
 #[ApiResource(
     normalizationContext: ['groups' => ['user:read']],
-    operations: [
-        new Get(
-            uriTemplate: '/users/{id}',
-            normalizationContext: ['groups' => ['user:read']]
-        ),
-        new Post(),
-    ],
 )]
 
 class User implements UserInterface, PasswordAuthenticatedUserInterface
