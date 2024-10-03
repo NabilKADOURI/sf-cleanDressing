@@ -12,8 +12,8 @@ class ArticleFixture extends Fixture
     public const ARTICLES = [
         [
             'title' => "Astuces repassage",
-            'subtitle'=> "Conseils Pratiques pour un Repassage Parfait",
-            'picture' => "astuce-repassage.jpg",
+            'subtitle' => "Conseils Pratiques pour un Repassage Parfait",
+            'picture' => "astuce-repassage.webp",
             'description' => "1 - Repasser avec un fer à bonne température. "
                 . "Commencer par trier le linge selon la température de repassage requise. "
                 . "Débuter par ceux qui nécessitent la température la plus basse en allant vers ceux qui nécessitent la température la plus haute : "
@@ -51,52 +51,52 @@ class ArticleFixture extends Fixture
         [
             'title' => "Le blanc",
             'subtitle' => "Le Blanc Parfait : Trucs et Astuces Incontournables",
-            'picture' => "astuce-blanc.jpg",
+            'picture' => "astuce-blanc.webp",
             'description' => "1. Ne mélangez pas vos blancs avec d’autres couleurs, aussi pâles soient-elles. Évitez également de mettre une trop grande quantité de vêtements dans la machine. Ils doivent pouvoir circuler librement dans l’eau afin d'être bien nettoyés.\n\n"
-                            . "2. Avant de nettoyer, soyez certain de prétraiter les taches avec un produit approprié.\n\n"
-                            . "3. Oubliez l’eau de javel et optez plutôt pour un mélange de 1/4 de tasse de jus de citron ajouté à votre lessive. À défaut du jus de citron, le bicarbonate de soude et le vinaigre sont d’excellents blanchissants. "
-                            . "Vous pouvez ajouter une demi-tasse de bicarbonate de soude à votre détergent au début du cycle. Ensuite, juste avant le cycle de rinçage, versez une demi-tasse de vinaigre blanc dans la laveuse. "
-                            . "Ne vous inquiétez pas pour l’odeur de vinaigre, elle disparaîtra avec le rinçage.\n\n"
-                            . "4. Une eau plus chaude aide à garder les blancs plus éclatants. Assurez-vous par contre que le tissu peut le tolérer. Référez-vous à l’étiquette du fabricant.\n\n"
-                            . "5. Le soleil est votre meilleur allié pour redonner la blancheur au tissu, alors oubliez la sécheuse et faites sécher les vêtements à l’extérieur ! "
-                            . "Si vous devez absolument utiliser la sécheuse, évitez les températures trop hautes, au risque de faire jaunir les tissus. Retirez-les aussitôt secs !",
+                . "2. Avant de nettoyer, soyez certain de prétraiter les taches avec un produit approprié.\n\n"
+                . "3. Oubliez l’eau de javel et optez plutôt pour un mélange de 1/4 de tasse de jus de citron ajouté à votre lessive. À défaut du jus de citron, le bicarbonate de soude et le vinaigre sont d’excellents blanchissants. "
+                . "Vous pouvez ajouter une demi-tasse de bicarbonate de soude à votre détergent au début du cycle. Ensuite, juste avant le cycle de rinçage, versez une demi-tasse de vinaigre blanc dans la laveuse. "
+                . "Ne vous inquiétez pas pour l’odeur de vinaigre, elle disparaîtra avec le rinçage.\n\n"
+                . "4. Une eau plus chaude aide à garder les blancs plus éclatants. Assurez-vous par contre que le tissu peut le tolérer. Référez-vous à l’étiquette du fabricant.\n\n"
+                . "5. Le soleil est votre meilleur allié pour redonner la blancheur au tissu, alors oubliez la sécheuse et faites sécher les vêtements à l’extérieur ! "
+                . "Si vous devez absolument utiliser la sécheuse, évitez les températures trop hautes, au risque de faire jaunir les tissus. Retirez-les aussitôt secs !",
             'dateCreate' => "2024-05-15",
         ],
-        
+
 
 
         [
             'title' => "Fibres naturelles",
             'subtitle' => "Entretien et soin des fibres naturelles",
-            'picture' => "astuce-fibre.jpg",
+            'picture' => "astuce-fibre.webp",
             'description' => "1. Lire les étiquettes de soin : \n"
-                            . "- Vérifiez toujours l'étiquette d'entretien pour des instructions spécifiques concernant le lavage, le séchage et le repassage.\n\n"
-                            . "2. Tri du linge :\n"
-                            . "- Séparer les couleurs : Triez les vêtements par couleur (blancs, couleurs claires, couleurs foncées) pour éviter les décolorations.\n"
-                            . "- Classer par type de fibre : Lavez séparément les fibres délicates comme la soie et la laine des autres tissus.\n\n"
-                            . "3. Préparation avant lavage :\n"
-                            . "- Traitement des taches : Appliquez un détachant adapté aux fibres naturelles avant le lavage si nécessaire.\n"
-                            . "- Fermeture des zips et boutons : Fermez les fermetures éclair, les boutons et retournez les vêtements à l'envers pour protéger les fibres.\n\n"
-                            . "4. Choix du détergent :\n"
-                            . "- Utiliser des détergents doux : Optez pour des lessives douces sans agents blanchissants pour ne pas endommager les fibres naturelles.\n\n"
-                            . "5. Température de lavage :\n"
-                            . "- Coton et lin : Lavez à l'eau tiède (30-40°C) pour éviter le rétrécissement.\n"
-                            . "- Laine et soie : Utilisez un cycle de lavage à froid ou à main à une température maximale de 30°C.\n\n"
-                            . "6. Cycle de lavage :\n"
-                            . "- Cycle délicat : Sélectionnez un cycle de lavage délicat pour les fibres naturelles afin de réduire l'agitation et éviter les dommages.\n\n"
-                            . "7. Séchage :\n"
-                            . "- Séchage à l'air libre : Préférez sécher les vêtements à l'air libre sur un cintre ou à plat, loin de la lumière directe du soleil pour éviter la décoloration.\n"
-                            . "- Séchage en machine : Si nécessaire, utilisez le réglage le plus bas de la sécheuse, mais il est généralement préférable d'éviter la sécheuse pour les fibres naturelles.\n\n"
-                            . "8. Repassage :\n"
-                            . "- Réglage de température : Repasser à la température appropriée pour chaque type de fibre (coton et lin à haute température, laine et soie à basse température).\n"
-                            . "- Utiliser une pattemouille : Pour les fibres délicates comme la soie, utilisez un tissu humide entre le fer et le vêtement pour éviter les brûlures et les marques.\n\n"
-                            . "9. Rangement :\n"
-                            . "- Stockage approprié : Conservez les vêtements en fibres naturelles dans un endroit frais et sec. Utilisez des housses de protection en coton pour éviter la poussière et la lumière.\n"
-                            . "- Prévention des mites : Pour la laine, ajoutez des sachets anti-mites dans les tiroirs ou les placards.\n"
-                            . "En suivant ces étapes, vous pouvez prolonger la durée de vie de vos vêtements en fibres naturelles et les maintenir en bon état. Pour les pièces fragiles, le nettoyage à sec est obligatoire.",
+                . "- Vérifiez toujours l'étiquette d'entretien pour des instructions spécifiques concernant le lavage, le séchage et le repassage.\n\n"
+                . "2. Tri du linge :\n"
+                . "- Séparer les couleurs : Triez les vêtements par couleur (blancs, couleurs claires, couleurs foncées) pour éviter les décolorations.\n"
+                . "- Classer par type de fibre : Lavez séparément les fibres délicates comme la soie et la laine des autres tissus.\n\n"
+                . "3. Préparation avant lavage :\n"
+                . "- Traitement des taches : Appliquez un détachant adapté aux fibres naturelles avant le lavage si nécessaire.\n"
+                . "- Fermeture des zips et boutons : Fermez les fermetures éclair, les boutons et retournez les vêtements à l'envers pour protéger les fibres.\n\n"
+                . "4. Choix du détergent :\n"
+                . "- Utiliser des détergents doux : Optez pour des lessives douces sans agents blanchissants pour ne pas endommager les fibres naturelles.\n\n"
+                . "5. Température de lavage :\n"
+                . "- Coton et lin : Lavez à l'eau tiède (30-40°C) pour éviter le rétrécissement.\n"
+                . "- Laine et soie : Utilisez un cycle de lavage à froid ou à main à une température maximale de 30°C.\n\n"
+                . "6. Cycle de lavage :\n"
+                . "- Cycle délicat : Sélectionnez un cycle de lavage délicat pour les fibres naturelles afin de réduire l'agitation et éviter les dommages.\n\n"
+                . "7. Séchage :\n"
+                . "- Séchage à l'air libre : Préférez sécher les vêtements à l'air libre sur un cintre ou à plat, loin de la lumière directe du soleil pour éviter la décoloration.\n"
+                . "- Séchage en machine : Si nécessaire, utilisez le réglage le plus bas de la sécheuse, mais il est généralement préférable d'éviter la sécheuse pour les fibres naturelles.\n\n"
+                . "8. Repassage :\n"
+                . "- Réglage de température : Repasser à la température appropriée pour chaque type de fibre (coton et lin à haute température, laine et soie à basse température).\n"
+                . "- Utiliser une pattemouille : Pour les fibres délicates comme la soie, utilisez un tissu humide entre le fer et le vêtement pour éviter les brûlures et les marques.\n\n"
+                . "9. Rangement :\n"
+                . "- Stockage approprié : Conservez les vêtements en fibres naturelles dans un endroit frais et sec. Utilisez des housses de protection en coton pour éviter la poussière et la lumière.\n"
+                . "- Prévention des mites : Pour la laine, ajoutez des sachets anti-mites dans les tiroirs ou les placards.\n"
+                . "En suivant ces étapes, vous pouvez prolonger la durée de vie de vos vêtements en fibres naturelles et les maintenir en bon état. Pour les pièces fragiles, le nettoyage à sec est obligatoire.",
             'dateCreate' => "2024-04-03",
         ],
-        
+
     ];
 
     public function load(ObjectManager $manager): void
@@ -107,14 +107,13 @@ class ArticleFixture extends Fixture
             $article = new Article();
 
             $article
-            ->setTitle($articleArray['title'])
-            ->setSubtitle($articleArray['subtitle'])
-            ->setPicture($articleArray['picture'])
-            ->setDescription($articleArray['description'])
-            ->setDateCreate(new \DateTime($articleArray['dateCreate']));
+                ->setTitle($articleArray['title'])
+                ->setSubtitle($articleArray['subtitle'])
+                ->setPicture($articleArray['picture'])
+                ->setDescription($articleArray['description'])
+                ->setDateCreate(new \DateTime($articleArray['dateCreate']));
 
             $manager->persist($article);
-
         }
 
 
