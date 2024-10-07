@@ -25,7 +25,6 @@ class OrderCrudController extends AbstractCrudController
     {
         return Order::class;
     }
-
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -34,8 +33,7 @@ class OrderCrudController extends AbstractCrudController
             ArrayField::new('items')->hideOnForm(),
             AssociationField::new('userOrder')->hideOnForm(),
             AssociationField::new('status'),
-            AssociationField::new('employee')->setPermission("ROLE_ADMIN"),
-           
+            AssociationField::new('employee')->setPermission("ROLE_ADMIN"),  
         ];
     }
 
@@ -47,5 +45,4 @@ class OrderCrudController extends AbstractCrudController
             ->setPermission(Action::DELETE, 'ROLE_ADMIN')
             ->disable(Action::NEW);
     }
-
 }
