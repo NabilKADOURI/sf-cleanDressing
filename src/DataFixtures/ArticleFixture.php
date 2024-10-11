@@ -111,7 +111,8 @@ class ArticleFixture extends Fixture
                 ->setSubtitle($articleArray['subtitle'])
                 ->setPicture($articleArray['picture'])
                 ->setDescription($articleArray['description'])
-                ->setDateCreate(new \DateTime($articleArray['dateCreate']));
+                ->setDateCreate(new \DateTime($articleArray['dateCreate']))
+                ->setVisible(true);
 
             $manager->persist($article);
         }

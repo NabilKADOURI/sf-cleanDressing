@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use ApiPlatform\Metadata\Get;
-use ApiPlatform\Metadata\Post;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -38,15 +36,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups('user:read')]
+    #[Groups([ 'user:read', 'testimonial:read'])]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups('user:read')]
+    #[Groups([ 'user:read', 'testimonial:read'])]
     private ?string $firstName = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups('user:read')]
+    #[Groups([ 'user:read',])]
     private ?string $email = null;
 
     #[ORM\Column]
@@ -65,13 +63,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private Collection $orders;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Groups('user:read')]
+    #[Groups(['user:read','testimonial:read'])]
     private ?string $picture = null;
+
+    /**
+     * @var Collection<int, Testimonial>
+     */
+    #[ORM\OneToMany(targetEntity: Testimonial::class, mappedBy: 'user')]
+    #[Groups([ 'user:read'])]
+    private Collection $testimonials;
 
 
     public function __construct()
     {
         $this->orders = new ArrayCollection();
+        $this->testimonials = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -242,6 +248,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPicture(?string $picture): static
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Testimonial>
+     */
+    public function getTestimonials(): Collection
+    {
+        return $this->testimonials;
+    }
+
+    public function addTestimonial(Testimonial $testimonial): static
+    {
+        if (!$this->testimonials->contains($testimonial)) {
+            $this->testimonials->add($testimonial);
+            $testimonial->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTestimonial(Testimonial $testimonial): static
+    {
+        if ($this->testimonials->removeElement($testimonial)) {
+            // set the owning side to null (unless already changed)
+            if ($testimonial->getUser() === $this) {
+                $testimonial->setUser(null);
+            }
+        }
 
         return $this;
     }

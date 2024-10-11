@@ -3,11 +3,13 @@
 namespace App\EventListener;
 
 use App\Entity\Order;
+use App\Entity\User;
 use Doctrine\ORM\Events;
-use App\Repository\StatusRepository;
 use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Symfony\Bundle\SecurityBundle\Security;
+
+
 
 #[AsDoctrineListener(Events::prePersist)]
 class AddUserToOrderListener
@@ -21,6 +23,14 @@ class AddUserToOrderListener
         if (!$entity instanceof Order) {
             return;
         }
-        $entity->setUserOrder($this->security->getUser());
+        
+        $user = $this->security->getUser();
+
+        if (!$user instanceof User) {
+            throw new \Exception("No authenticated user found.");
+        }
+        $entity->setUserOrder($user);
+
+
     }
 }
