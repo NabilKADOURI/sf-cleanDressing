@@ -12,6 +12,7 @@ use App\Entity\Order;
 use App\Entity\Product;
 use App\Entity\Service;
 use App\Entity\Status;
+use App\Entity\Testimonial;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -65,6 +66,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Blog')->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToCrud('Articles', 'fa-regular fa-id-card', Article::class)->setPermission('ROLE_ADMIN');
 
+        yield MenuItem::section('Avis')->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Avis', 'fa-regular fa-id-card', Testimonial::class)->setPermission('ROLE_ADMIN');
+        
         yield MenuItem::section('Exit');
         yield MenuItem::linkToLogout('Deconnexion', 'fa-solid fa-right-from-bracket');
     }

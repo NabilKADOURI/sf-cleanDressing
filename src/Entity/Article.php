@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\BooleanFilter;
+use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\ArticleRepository;
 use Doctrine\DBAL\Types\Types;
@@ -9,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 #[ApiResource]
+#[ApiFilter(BooleanFilter::class, properties: ['visible'])]
 class Article
 {
     #[ORM\Id]

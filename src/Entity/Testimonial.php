@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+
+use ApiPlatform\Doctrine\Orm\Filter\BooleanFilter;
+use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
@@ -21,6 +24,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
     normalizationContext: ['groups' => ['testimonial:read']],
 )]
+
+#[ApiFilter(BooleanFilter::class, properties: ['visible'])]
 class Testimonial
 {
     #[ORM\Id]
@@ -42,12 +47,12 @@ class Testimonial
     private ?int $star = null;
 
     #[ORM\ManyToOne(inversedBy: 'testimonials')]
-    #[Groups([ 'testimonial:read'])]
+    #[Groups(['testimonial:read'])]
     private ?User $user = null;
 
     #[ORM\Column]
-    #[Groups([ 'testimonial:read'])]
-    private ?bool $visible = null;
+    #[Groups(['testimonial:read'])]
+    private ?bool $visible = false;
 
     public function getId(): ?int
     {
